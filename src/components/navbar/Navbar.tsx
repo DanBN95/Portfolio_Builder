@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { MenuItems } from './MenuItems';
+import { MenuItems } from '../MenuItems';
 import './Navbar.css';
-import Button from '../../button/Button';
+import Button from '../button/Button';
 
 function Navbar() {
 
@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <nav className='NavbarItems'>
-        <h1 className='navbar-logo'>React<i className='fab fa-react'></i></h1>
+        <h1 className='navbar-logo'>Dan Ben Natan<i className='fab fa-react'></i></h1>
         <div className='menu-icon' onClick={handleClick}>
           <i className={clicked ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
