@@ -14,6 +14,15 @@ function HiveGrid() {
         <div className='hexagon'></div>
         <div className='hexagon'></div>
         <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
+        <div className='hexagon'></div>
     </div>
 
   )
