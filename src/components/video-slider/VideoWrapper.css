@@ -1,5 +1,25 @@
 .wrapper {
-    overflow-x: scroll;
-    flex-direction: row; 
+    width: 100vw;
+    height: 100vh;
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
 }
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    top: 0;
+}
+
+.dot {
+    font-size: 30px;
+    cursor: pointer;
+    margin: 0 8px;
+    list-style: circle;
+}
+
+.dot.active {
+    list-style:disc;
+}
+

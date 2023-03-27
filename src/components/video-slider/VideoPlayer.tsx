@@ -7,8 +7,6 @@ type VideoPlayerType = {
     onClickArrow: (dir: "left" | "right") => void;
 }
 
-// "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-
 function VideoPlayer({ videoSrc, onClickArrow }: VideoPlayerType) {
   return (
     <div className='videos-box'>
