@@ -9,3 +9,8 @@
   width: 100%;
   height: 100%;
 }
+
+hr.divider {
+  border-top: 8px solid #fff;
+  border-radius: 15px;
+}

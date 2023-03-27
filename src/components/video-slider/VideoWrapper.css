@@ -1,0 +1,5 @@
+.wrapper {
+    overflow-x: scroll;
+    flex-direction: row; 
+    display: flex;
+}

@@ -1,6 +1,5 @@
 import { url } from 'inspector';
 import React, { useEffect, useState } from 'react'
-import HiveGrid from '../components/hive/HiveGrid';
 import './Intro.css';
 
 const INTRO_TEXT = "Welcome to Portfolio-Template-Generator\n Frontend Developer\n Based in Israel"
