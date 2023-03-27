@@ -3,6 +3,7 @@ export const aboutSectionString = [
         title: "About",
         titleClassName: 'about-title',
         paragraphString: "Motivated Full-Stack Developer with a Bachelor's degree in Computer Science and hands-on experience in developing high- quality applications using React Native. Seeking a challenging Software Engineer position that will allow me to further my knowledge and skills as well as increased responsibility in an innovative company.",
+        paragraphEditable: true
     },
     {
         title: "Experience",

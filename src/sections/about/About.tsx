@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css';
 import ComputerSeatImage from '../../images/about-me-reg-far.jpeg';
 import { aboutSectionString } from './AboutSectionStrings';
+import Editable from '../../components/Editable';
 
 function About() {
+
+    const [aboutSection, setAboutSection] = useState(aboutSectionString);
 
     const renderItem = (item: any, index: number) => {
         if (item?.isUl) {
@@ -24,12 +27,16 @@ function About() {
                 <div key={`${index}-${item}`} className={item.titleClassName}>
                     {item.title}
                 </div>
-                <div className='about-para-container'>
+                <div className='about-para-container' onMouseEnter={onMouseEnter}>
                     <p className='about-para'>{item.paragraphString}</p>
                 </div>
             </>
         )
     };
+
+    const onMouseEnter = () => {
+        console.log('### generate modal');
+    }
 
 
   return (
@@ -38,7 +45,27 @@ function About() {
             <img src={ComputerSeatImage} style={{ height: '100vh', width: '100%', objectFit: 'cover'}}></img>
         </div>
         <div className='about-container'>
-            {aboutSectionString.map(renderItem)}
+            {/* {aboutSectionString.map((section, index) => {
+                const { title, titleClassName, paragraphString, isUl } = section;
+                return (
+                    <Editable
+                    text={aboutText}
+                    placeholder="Write a task name"
+                    type="input"
+                    index={index}
+                  >
+                    <input
+                      type="text"
+                      name="task"
+                      placeholder="Write a task name"
+                      value={aboutText}
+                      className={"about-para"}
+                      onChange={e => setAboutText(e.target.value)}
+                    />
+                  </Editable>
+                )
+            })} */}
+            {aboutSection.map(renderItem)}
         </div>
     </div>
   )
