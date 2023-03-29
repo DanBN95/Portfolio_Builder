@@ -1,4 +1,6 @@
-export const aboutSectionString = [
+import { AboutSectionType } from "../../types";
+
+export const aboutSectionString: AboutSectionType = [
     {
         title: "About",
         titleClassName: 'about-title',

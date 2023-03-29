@@ -2,11 +2,10 @@ import React, { useState } from "react";
 
 // Component accept text, placeholder values and also pass what type of Input - input, textarea so that we can use it for styling accordingly
 type EditableProps = {
-    text: string;
+    text: React.ReactNode;
     type: "input" | "textarea";
     placeholder: string;
     children: React.ReactNode;
-    index: number;
 }
 
 const Editable = ({
@@ -14,7 +13,6 @@ const Editable = ({
   type,
   placeholder,
   children,
-  index,
   ...props
 }: EditableProps) => {
   // Manage the state whether to show the label or the input box. By default, label will be shown.
@@ -45,9 +43,7 @@ Note: For simplicity purpose, I removed all the classnames, you can check the re
         <div
           onClick={() => setEditing(true)}
         >
-          <span className="about-para">
-            {text || placeholder || "Editable content"}
-          </span>
+          {text || <p>{placeholder}</p>}
         </div>
       )}
     </section>

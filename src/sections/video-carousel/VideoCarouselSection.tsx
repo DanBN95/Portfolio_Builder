@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import VideoPlayer from '../../components/video-slider/VideoPlayer';
 import VideosWrapper from '../../components/video-slider/VideosWrapper';
 import { videos } from '../../components/VideoItems';
 import './VideoCarouselSection.css';

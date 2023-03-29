@@ -1,23 +1,29 @@
 .body-container {
     display: flex;
-    min-width: 100vw;
-    min-height: 100vh;
-    /* background-color: #fb86d1;
-    background-image: linear-gradient(0deg, #fb86d1 0%, #39c7e6 50%, #42baf6 100%); */
+    width: 100vw;
+    min-height: 800px;
     background-color: #F6DDCC;
+    overflow-y: visible;
+    flex-direction: row;
 }
 
 .img-container {
+    display: flex;
     width: 50vw;
+    align-items: center;
+    /* margin-top: 30px; */
 }
 
 .about-container {
+    display: flex;
+    flex-direction:column;
     width: 47vw;
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
     margin-left: 20px;
-    left: 0
+    left: 0;
+    flex-wrap: nowrap;
 }
 
 .about-title {
