@@ -8,7 +8,9 @@ function AboutSectionItem({
     placeholder,
     value,
     setValue,
-    isUlTag
+    isUlTag,
+    customContainerStyle,
+    textStyle
 } : AboutSectionItemType) {
 
     const defaultInputProps = {
@@ -25,22 +27,34 @@ function AboutSectionItem({
         onChange: (e: any) => setValue(e.target.value)
     }
 
-    const CustomTag = (editType === 'input' ? `<input ${defaultInputProps}>` : `<textarea ${defaultTextareaProps}>`) as keyof JSX.IntrinsicElements;
-
-    const renderText = () => {
-        if (isUlTag) {
-            
-        }
-    }
+    const CustomTag = (editType === 'input' ? `<input>` : `<textarea>`) as keyof JSX.IntrinsicElements;
 
 
   return (
     <Editable
-        text={text}
+        text={
+            isUlTag ? (
+                <ul className={customContainerStyle}>
+                    {value.split('\n').map((li: string, li_index: number) => {
+                            return (
+                                <li key={`${li_index}-${li}`} className={textStyle}>{li}</li>
+                            )
+                    })}
+                </ul>
+            ) : (
+                <div className={editType === 'input' ? textStyle : customContainerStyle}>
+                    {editType === 'input' ? value :  <p className={textStyle}>{value}</p>}
+                </div>
+            )
+        }
         type={editType}
         placeholder={placeholder}
     >
-        <CustomTag />
+        {editType === 'input' ? (
+            <input {...defaultInputProps}/>
+        ) : (
+            <textarea {...defaultTextareaProps} />
+        )}
     </Editable>
   )
 }

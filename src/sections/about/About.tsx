@@ -3,7 +3,8 @@ import './About.css';
 import ComputerSeatImage from '../../images/about-me-reg-far.jpeg';
 import { aboutSectionString } from './AboutSectionStrings';
 import Editable from '../../components/Editable';
-import { AboutSectionType } from '../../types';
+import { AboutParagraphType, AboutSectionType } from '../../types';
+import AboutSectionItem from './AboutSectionItem';
 
 const ABOUT_SECTION_STRINGS = {
     shortAboutDesc: " Motivated Full-Stack Developer with a Bachelor's degree in Computer Science and hands-on experience in developing high- quality applications using React Native. Seeking a challenging Software Engineer position that will allow me to further my knowledge and skills as well as increased responsibility in an innovative company.",
@@ -21,6 +22,8 @@ function About() {
         educationTitle: "Education",
         educationDesc: ABOUT_SECTION_STRINGS.educationPara
     });
+    const aboutSectionStatesKeys = Object.keys(aboutSectionStates);
+
 
     const { 
         aboutTitle, 
@@ -53,7 +56,31 @@ function About() {
             <img src={ComputerSeatImage} style={{ height: '100vh', width: '100%', objectFit: 'contain'}}></img>
         </div>
         <div className='about-container'>
-            <Editable
+            {aboutSectionString.map((item, index) => {
+                const { editType, placeholder, valueKey, isUl, customContainerClassname, textClassname } = item;
+                const isValidKey = aboutSectionStatesKeys.indexOf(valueKey) > -1;
+                const currentState = valueKey as keyof typeof aboutSectionStates;
+                return (
+                    <AboutSectionItem 
+                        text={isValidKey ? aboutSectionStates[currentState] : ''}
+                        editType={editType as "input" | "textarea"}
+                        placeholder={placeholder}
+                        value={aboutSectionStates}
+                        setValue={(newValue) => setAboutSectionState(
+                            {
+                                ...aboutSectionStates, 
+                                [aboutSectionStates[currentState]]: newValue
+                            }
+                        )}
+                        valueKey={currentState}
+                        isUlTag={isUl as boolean}
+                        textStyle={textClassname}
+                        customContainerStyle={customContainerClassname}
+
+                    />
+                )
+            })}
+            {/* <Editable
                 text={
                     <div className='about-title'>
                         {aboutTitle}
@@ -161,7 +188,7 @@ function About() {
                         value={educationDesc}                    
                         onChange={e => setAboutSectionState({...aboutSectionStates, educationDesc: e.target.value })}                 
                 />
-            </Editable>
+            </Editable> */}
         </div>
     </div>
   )
