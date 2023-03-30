@@ -12,7 +12,10 @@ export type AboutSectionItemType =  {
     text: string;
     editType: "input" | "textarea";
     placeholder: string;
-    value: string;
+    value: Object;
+    valueKey: string;
     setValue: (event: any) => void;
     isUlTag: boolean;
+    customContainerStyle: string;
+    textStyle: string;
 }
