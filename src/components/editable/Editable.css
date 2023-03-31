@@ -1,0 +1,5 @@
+.edit-text-options-btn-container {
+    background-color: green;
+    display: flex;
+    justify-content: space-around;
+}

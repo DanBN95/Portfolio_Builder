@@ -18,6 +18,7 @@ interface Props {
   onClick?: () => void;
   buttonStyle?: any;
   buttonSize?: any;
+  customStyle?: Object;
 }
 
 const Button: React.FC<Props> = (
@@ -26,7 +27,8 @@ const Button: React.FC<Props> = (
     type, 
     onClick, 
     buttonStyle, 
-    buttonSize
+    buttonSize,
+    customStyle
   }) => {
 
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
@@ -34,8 +36,9 @@ const Button: React.FC<Props> = (
 
   return (
     <button 
-      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+      className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
       onClick={onClick}
+      style={customStyle}
     >
       {children}
     </button>

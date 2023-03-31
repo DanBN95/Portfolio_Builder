@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './About.css';
 import ComputerSeatImage from '../../images/about-me-reg-far.jpeg';
 import { aboutSectionString } from './AboutSectionStrings';
-import Editable from '../../components/Editable';
+import Editable from '../../components/editable/Editable';
 import { AboutSectionType } from '../../types';
+import FormDialog from '../../components/modals/FormModal';
 
 const ABOUT_SECTION_STRINGS = {
     shortAboutDesc: " Motivated Full-Stack Developer with a Bachelor's degree in Computer Science and hands-on experience in developing high- quality applications using React Native. Seeking a challenging Software Engineer position that will allow me to further my knowledge and skills as well as increased responsibility in an innovative company.",
@@ -30,6 +31,7 @@ function About() {
         educationTitle,
         educationDesc
     } = aboutSectionStates;
+    const [isAiFormMoalOpen, setAiFormModalOpen] = useState(false);
 
     const onMouseEnter = () => {
         console.log('### generate modal');
@@ -61,6 +63,7 @@ function About() {
                 }
                 type="input"
                 placeholder='About-Title'
+                setAiFormModalOpen={setAiFormModalOpen}
             >
                 <input 
                     type="text"
@@ -79,6 +82,7 @@ function About() {
                 } 
                 type="textarea"
                 placeholder='About-Description'
+                setAiFormModalOpen={setAiFormModalOpen}
             >
                 <textarea 
                     name='about-description'
@@ -96,6 +100,7 @@ function About() {
                     }
                     type="input"
                     placeholder='Experience-Title'
+                    setAiFormModalOpen={setAiFormModalOpen}
                 >
                     <input 
                         type="text"
@@ -114,6 +119,7 @@ function About() {
                     }
                     type="textarea"
                     placeholder='Experience description'
+                    setAiFormModalOpen={setAiFormModalOpen}
                 >
                     <textarea 
                         name='experience-description'
@@ -133,6 +139,7 @@ function About() {
                 }
                 type="input"
                 placeholder="Education title"
+                setAiFormModalOpen={setAiFormModalOpen}
             >
                 <input
                     type="text"
@@ -152,6 +159,7 @@ function About() {
                 }
                 type='textarea'
                 placeholder='Education description'
+                setAiFormModalOpen={setAiFormModalOpen}
             >
                 <textarea 
                         name='education-description'
@@ -163,6 +171,7 @@ function About() {
                 />
             </Editable>
         </div>
+        <FormDialog isModalOpen={isAiFormMoalOpen} setModalOpen={setAiFormModalOpen}  />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import Editable from '../../components/Editable'
+import Editable from '../../components/editable/Editable'
 import { AboutSectionItemType } from '../../types'
 
 function AboutSectionItem({
@@ -35,13 +35,14 @@ function AboutSectionItem({
 
 
   return (
-    <Editable
-        text={text}
-        type={editType}
-        placeholder={placeholder}
-    >
-        <CustomTag />
-    </Editable>
+    <></>
+    // <Editable
+    //     text={text}
+    //     type={editType}
+    //     placeholder={placeholder}
+    // >
+    //     <CustomTag />
+    // </Editable>
   )
 }
 
