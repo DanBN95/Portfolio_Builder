@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './About.css';
 import ComputerSeatImage from '../../images/about-me-reg-far.jpeg';
 import { aboutSectionString } from './AboutSectionStrings';
@@ -36,6 +36,15 @@ function About() {
     const onMouseEnter = () => {
         console.log('### generate modal');
     }
+
+    const setGeneratedAiText = useCallback(
+        (text: string, key: string) => {
+            setAboutSectionState({
+                ...aboutSectionStates,
+                [key]: text
+            })
+      },[aboutSectionStates],
+    )
 
     /* 
         {
@@ -171,7 +180,10 @@ function About() {
                 />
             </Editable>
         </div>
-        <FormDialog isModalOpen={isAiFormMoalOpen} setModalOpen={setAiFormModalOpen}  />
+        <FormDialog 
+            isModalOpen={isAiFormMoalOpen} 
+            setModalOpen={setAiFormModalOpen} 
+            setGeneratedAiText={setGeneratedAiText}  />
     </div>
   )
 }
