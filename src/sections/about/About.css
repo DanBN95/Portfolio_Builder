@@ -1,7 +1,7 @@
 .body-container {
     display: flex;
     width: 100vw;
-    min-height: 800px;
+    min-height: 1000px;
     background-color: #F6DDCC;
     overflow-y: visible;
     flex-direction: row;
@@ -31,6 +31,7 @@
     font-size: 40px;
     font-family: 'Cinzel', serif;
     color: #fff;
+    width: 600px;
 }
 
 .sub-title {
@@ -38,6 +39,7 @@
     font-size: 27px;
     font-family: 'Cinzel', serif;
     color: #fff;
+    width: 600px;
 }
 
 .about-para {
@@ -46,4 +48,9 @@
     font-size: 18px;
     line-height: 1.5em;
     font-family: 'Avenir-light', sans-serif;
+    width: 600px;
+}
+
+.about-para:hover {
+    border: 2px solid green;
 }

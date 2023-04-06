@@ -1,5 +1,6 @@
 .edit-text-options-btn-container {
-    background-color: green;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    padding: 5px;
+    left: 0;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Editable.css';
 import Button from "../button/Button";
 import FormModal from '../modals/FormModal';
 
@@ -26,9 +27,10 @@ const Editable = ({
 
   const buttonCustomStyle = {
     borderRadius: '50%',
-    marginLeft: '15px',
+    marginLeft: '5px',
+    marginBottom: '3px',
     boxShadow: '0px 5px 9px gray',
-    zIndex: 1
+    zIndex: 1,
   }
 
 // Event handler while pressing any key while editing
@@ -59,7 +61,7 @@ Note: For simplicity purpose, I removed all the classnames, you can check the re
         </div>
       ) : (
         <>
-        {showEditTextOptions ? (
+        {showEditTextOptions && (
           <div className="edit-text-options-btn-container">
             <Button 
               onClick={() => setEditing(true)}
@@ -74,13 +76,12 @@ Note: For simplicity purpose, I removed all the classnames, you can check the re
               Generate Ai Text
             </Button>
           </div>
-        ) : (
+        )}
           <div
             onClick={() => setShowEditTextOptions(true)}
           >
             {text || <p>{placeholder}</p>}
           </div>
-        )}
         </>
       )}
     </section>
