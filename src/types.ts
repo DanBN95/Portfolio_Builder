@@ -10,9 +10,9 @@ export type AboutSectionType = AboutParagraphType[];
 
 export type AboutSectionItemType =  {
     text: string;
+    textType: "title" | "paragraph" | 'ul';
     editType: "input" | "textarea";
-    placeholder: string;
-    value: string;
-    setValue: (event: any) => void;
-    isUlTag: boolean;
+    placeholder?: string;
+    setAiFormModalOpen: (isOpen: boolean) => void;
+    customTextStyle: string;
 }

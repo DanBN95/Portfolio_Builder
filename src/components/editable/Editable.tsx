@@ -79,6 +79,7 @@ Note: For simplicity purpose, I removed all the classnames, you can check the re
         )}
           <div
             onClick={() => setShowEditTextOptions(true)}
+            onBlur={() => setShowEditTextOptions(false)}
           >
             {text || <p>{placeholder}</p>}
           </div>

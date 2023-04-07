@@ -26,6 +26,18 @@
     flex-wrap: nowrap;
 }
 
+.general-text:hover {
+    border: 2px solid green;   
+}
+
+input {
+    width: 600px;
+}
+
+textarea {
+    width: 600px;
+}
+
 .about-title {
     padding: 20px 0px 20px 0px;
     font-size: 40px;
@@ -52,5 +64,5 @@
 }
 
 .about-para:hover {
-    border: 2px solid green;
+   
 }
