@@ -6,18 +6,17 @@ import { AboutSectionItemType } from '../../types'
 const NUM_OF_ROWS = 5;
 const NUM_OF_COLS = 5;
 function AboutSectionItem({
+    index,
     text,
     textType,
     editType,
     placeholder = '',
     setAiFormModalOpen,
-    customTextStyle
+    customTextStyle,
+    deleteSectionItem
 } : AboutSectionItemType) {
 
     const [inputText, setInputText] = useState(text);
-    useEffect(() => {
-        console.log('### inputText:', inputText)
-    }, [inputText])
 
     const renderText = useMemo(() => {
         switch(textType) {
@@ -84,6 +83,8 @@ function AboutSectionItem({
         type={editType}
         placeholder={placeholder}
         setAiFormModalOpen={setAiFormModalOpen}
+        index={index ? index : 0}
+        deleteSectionItem={deleteSectionItem ? deleteSectionItem : () => {}}
     >
         {renderEditArea}
         

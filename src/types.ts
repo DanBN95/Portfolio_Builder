@@ -9,10 +9,12 @@ export type AboutParagraphType = {
 export type AboutSectionType = AboutParagraphType[];
 
 export type AboutSectionItemType =  {
+    index?: number;
     text: string;
     textType: "title" | "paragraph" | 'ul';
     editType: "input" | "textarea";
     placeholder?: string;
     setAiFormModalOpen: (isOpen: boolean) => void;
     customTextStyle: string;
+    deleteSectionItem?: (index: number) => void;
 }

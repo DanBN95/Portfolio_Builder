@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './Editable.css';
 import Button from "../button/Button";
 import FormModal from '../modals/FormModal';
@@ -10,6 +10,8 @@ type EditableProps = {
     placeholder: string;
     children: React.ReactNode;
     setAiFormModalOpen: (flag: boolean) => void;
+    index: number;
+    deleteSectionItem: (index: number) => void;
 }
 
 const Editable = ({
@@ -18,12 +20,13 @@ const Editable = ({
   placeholder,
   children,
   setAiFormModalOpen,
+  index,
+  deleteSectionItem,
   ...props
 }: EditableProps) => {
-  // Manage the state whether to show the label or the input box. By default, label will be shown.
-// Exercise: It can be made dynamic by accepting initial state as props outside the component 
   const [isEditing, setEditing] = useState<boolean>(false);
   const [showEditTextOptions, setShowEditTextOptions] = useState(false);
+  const sectionRef = useRef<any>(null);
 
   const buttonCustomStyle = {
     borderRadius: '50%',
@@ -43,15 +46,24 @@ const Editable = ({
     setShowEditTextOptions(false);
   };
 
-/*
-- It will display a label is `isEditing` is false
-- It will display the children (input or textarea) if `isEditing` is true
-- when input `onBlur`, we will set the default non edit mode
-Note: For simplicity purpose, I removed all the classnames, you can check the repo for CSS styles
-*/
+  useEffect(() => {
+    let handler = (e: any) => {
+      if (!sectionRef.current?.contains(e.target)) {
+        setShowEditTextOptions(false);
+      }
+    }
+    document.addEventListener('mousedown', handler);
+  }, [])
+
+  useEffect(() => {
+    if (!isEditing && text === '') {
+      deleteSectionItem(index);
+    }
+  }, [isEditing, text])
+
   return (
     <>
-    <section {...props}>
+    <section ref={sectionRef} {...props}>
       {isEditing ? (
         <div
           onBlur={() => setEditing(false)}
