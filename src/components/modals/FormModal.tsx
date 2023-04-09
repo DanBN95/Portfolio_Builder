@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useGetAITextMutation } from '../../features/chatgptAPI/chatgptSlice';
+import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 
 interface FormDialog {
     isModalOpen: boolean;
@@ -54,6 +55,7 @@ console.log(initialState)
 export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiText }: FormDialog) {
      
     const [fields, setFields] = useState<textFiledsType>(initialState as textFiledsType);
+    const [isLoading, setLoading] = useState<boolean>(false);
 
     const [getText] = useGetAITextMutation();
 
@@ -70,12 +72,13 @@ export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiTe
   }
 
   const generateAiText = async () => {
-    // console.log(fields);
+    setLoading(true);
     const prompt = generatePromptQueryForGpt();
     console.log('### prompt: ', prompt);
     const { data: { content } }: any = await getText(prompt);
     console.log('data', content);
     setGeneratedAiText(content);
+    setLoading(false);
     setModalOpen(false);
   };
 
@@ -90,7 +93,8 @@ export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiTe
 
   return (
     <div>
-      <Dialog open={isModalOpen} onClose={handleClose}>
+      <Dialog open={isModalOpen} onClose={handleClose} scroll='body'>
+          {isLoading && <LoadingSpinner />}
         <DialogTitle>Let Ai Generate Your Text!</DialogTitle>
         <DialogContent>
           <DialogContentText>
