@@ -14,15 +14,6 @@ function About() {
         console.log('### generate modal');
     }
 
-    const setGeneratedAiText = useCallback(
-        (text: string, key: string) => {
-            // setAboutSectionState({
-            //     ...aboutSectionStates,
-            //     [key]: text
-            // })
-      },[],
-    );
-
     const deleteSectionItem = (index:number) => {
         const temp = [...savedSectionStrings];
         temp.splice(index, 1);
@@ -52,10 +43,10 @@ function About() {
                 )
             })}
         </div>
-        <FormDialog 
+        {/* <FormDialog 
             isModalOpen={isAiFormMoalOpen} 
             setModalOpen={setAiFormModalOpen} 
-            setGeneratedAiText={setGeneratedAiText}  />
+            setGeneratedAiText={setGeneratedAiText}  /> */}
     </div>
   )
 }

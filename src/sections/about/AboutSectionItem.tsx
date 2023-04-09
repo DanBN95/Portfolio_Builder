@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Editable from '../../components/editable/Editable'
 import { AboutSectionItemType } from '../../types'
+import FormDialog from '../../components/modals/FormModal';
 
 
 const NUM_OF_ROWS = 5;
@@ -11,12 +12,13 @@ function AboutSectionItem({
     textType,
     editType,
     placeholder = '',
-    setAiFormModalOpen,
+    // setAiFormModalOpen,
     customTextStyle,
     deleteSectionItem
 } : AboutSectionItemType) {
 
     const [inputText, setInputText] = useState(text);
+    const [isAiFormModalOpen, setAiFormModalOpen] = useState(false);
 
     const renderText = useMemo(() => {
         switch(textType) {
@@ -75,9 +77,20 @@ function AboutSectionItem({
         }
 
       },[editType, inputText]);
+
+    const setGeneratedAiText = useCallback(
+        (text: string) => {
+            setInputText(text);
+            // setAboutSectionState({
+            //     ...aboutSectionStates,
+            //     [key]: text
+            // })
+        },[],
+    );
     
      
   return (
+    <>
     <Editable
         text={renderText}
         type={editType}
@@ -87,8 +100,13 @@ function AboutSectionItem({
         deleteSectionItem={deleteSectionItem ? deleteSectionItem : () => {}}
     >
         {renderEditArea}
-        
     </Editable>
+    <FormDialog 
+        isModalOpen={isAiFormModalOpen}
+        setModalOpen={setAiFormModalOpen}
+        setGeneratedAiText={setGeneratedAiText}
+    />
+    </>
   )
 }
 

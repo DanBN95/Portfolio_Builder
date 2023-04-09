@@ -11,7 +11,7 @@ import { useGetAITextMutation } from '../../features/chatgptAPI/chatgptSlice';
 interface FormDialog {
     isModalOpen: boolean;
     setModalOpen: (modalState: boolean) => void;
-    setGeneratedAiText: (text: string, key: string) => void;
+    setGeneratedAiText: (text: string) => void;
 }
 type textFiledsType = {
     name: string;
@@ -75,7 +75,7 @@ export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiTe
     console.log('### prompt: ', prompt);
     const { data: { content } }: any = await getText(prompt);
     console.log('data', content);
-    setGeneratedAiText(content, "shortAboutDesc");
+    setGeneratedAiText(content);
     setModalOpen(false);
   };
 
