@@ -28,7 +28,7 @@ function About() {
         </div>
         <div className='about-container'>
             {savedSectionStrings.map((section, index) => {
-                const { text, textType, editType, customTextStyle} = section;
+                const { text, textType, editType, customTextStyle, sectionName } = section;
                 return (
                     <AboutSectionItem {...{ 
                         index,
@@ -37,16 +37,13 @@ function About() {
                         editType,
                         setAiFormModalOpen,
                         customTextStyle,
-                        deleteSectionItem
+                        deleteSectionItem,
+                        sectionName
                     }}
                     />
                 )
             })}
         </div>
-        {/* <FormDialog 
-            isModalOpen={isAiFormMoalOpen} 
-            setModalOpen={setAiFormModalOpen} 
-            setGeneratedAiText={setGeneratedAiText}  /> */}
     </div>
   )
 }

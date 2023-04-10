@@ -9,6 +9,7 @@ export type AboutParagraphType = {
 export type AboutSectionType = AboutParagraphType[];
 
 export type AboutSectionItemType =  {
+    sectionName: string;
     index?: number;
     text: string;
     textType: "title" | "paragraph" | 'ul';

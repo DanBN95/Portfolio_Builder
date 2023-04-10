@@ -12,7 +12,8 @@ import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 interface FormDialog {
     isModalOpen: boolean;
     setModalOpen: (modalState: boolean) => void;
-    setGeneratedAiText: (text: string) => void;
+    setGeneratedAiText: (text: string, sectionName: string) => void;
+    sectionName: string;
 }
 type textFiledsType = {
     name: string;
@@ -52,7 +53,7 @@ const initialState = textFields.reduce((acc, field) => {
 }, {}); 
 console.log(initialState)
 
-export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiText }: FormDialog) {
+export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiText, sectionName }: FormDialog) {
      
     const [fields, setFields] = useState<textFiledsType>(initialState as textFiledsType);
     const [isLoading, setLoading] = useState<boolean>(false);
@@ -77,16 +78,26 @@ export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiTe
     console.log('### prompt: ', prompt);
     const { data: { content } }: any = await getText(prompt);
     console.log('data', content);
-    setGeneratedAiText(content);
+    setGeneratedAiText(content, sectionName);
+    resetFields();
     setLoading(false);
     setModalOpen(false);
   };
 
   const generatePromptQueryForGpt = (): string => {
     const { name, curJobRole, desiredJobRole, goodToKnow } = fields;
-    return `Generate me a short 'About' description for my portfolio by the following criteria:
+    return `Generate me a short ${sectionName} description for my portfolio by the following criteria:
     My name is ${name} I am a ${curJobRole} and I am looking for ${desiredJobRole} role. 
     Also good to know about me it is that: ${goodToKnow}`
+  }
+
+  const resetFields = () => {
+    const tempFields = { ...fields };
+    let key: keyof typeof tempFields;
+    for (key in tempFields) {
+      tempFields[key] = '';
+    }
+    setFields(tempFields);
   }
   
 
@@ -122,8 +133,8 @@ export default function FormDialog({ isModalOpen, setModalOpen, setGeneratedAiTe
           })}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={generateAiText}>Generate</Button>
+          <Button disabled={isLoading} onClick={handleClose}>Cancel</Button>
+          <Button disabled={isLoading} onClick={generateAiText}>Generate</Button>
         </DialogActions>
       </Dialog>
     </div>

@@ -14,7 +14,8 @@ function AboutSectionItem({
     placeholder = '',
     // setAiFormModalOpen,
     customTextStyle,
-    deleteSectionItem
+    deleteSectionItem,
+    sectionName
 } : AboutSectionItemType) {
 
     const [inputText, setInputText] = useState(text);
@@ -79,7 +80,7 @@ function AboutSectionItem({
       },[editType, inputText]);
 
     const setGeneratedAiText = useCallback(
-        (text: string) => {
+        (text: string, sectionName: string) => {
             setInputText(text);
             // setAboutSectionState({
             //     ...aboutSectionStates,
@@ -105,6 +106,7 @@ function AboutSectionItem({
         isModalOpen={isAiFormModalOpen}
         setModalOpen={setAiFormModalOpen}
         setGeneratedAiText={setGeneratedAiText}
+        sectionName={sectionName}
     />
     </>
   )
