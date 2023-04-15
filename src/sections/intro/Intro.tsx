@@ -1,4 +1,3 @@
-import { url } from 'inspector';
 import React, { useEffect, useState } from 'react'
 import './Intro.css';
 
@@ -21,13 +20,7 @@ function Intro() {
     }, [index])
 
   return (
-    <div className='body-container' style={
-        {
-            backgroundImage: "url(img/coloredwall_bg.jpg)",
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover'   
-        }
-    }>
+    <div className='intro-container'>
         <div className='item-1'>
             <p className='intro-text'>{text}</p>
             

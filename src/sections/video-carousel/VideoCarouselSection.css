@@ -25,11 +25,14 @@
 }
 
 .videos-section {
-    width: 55vw;
+    width: 40vw;
+    height: 80vh;
     display: flex;
     border-radius: 50%;
     border: 1px solid lightgray;
-    background-color: #fb86d1;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
     background-image: linear-gradient(0deg, #fb86d1 0%, #39c7e6 50%, #42baf6 100%);
 }
 

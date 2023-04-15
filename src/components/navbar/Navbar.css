@@ -1,6 +1,6 @@
 .NavbarItems {
-    background: #F6DDCC;
-    height: 80px;   
+    background-image: linear-gradient(110deg, #cee9f7 60%, #ebedee 80%);
+    height: 70px;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,14 +20,14 @@
 }
 
 .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
+    display: flex;
     list-style: none;
-    text-align: center;
     width: 70vw;
     justify-content: end;
+    align-items: center;
+    text-align: center;
     margin-right: 2rem;
+    border: 1 solid black;
 }
 
 .nav-links {

@@ -2,8 +2,8 @@
     display: flex;
     width: 100vw;
     min-height: 1000px;
-    background-color: #F6DDCC;
-    overflow-y: visible;
+    background-color: blackf;
+    /* overflow-y: visible; */
     flex-direction: row;
 }
 
@@ -42,7 +42,7 @@ textarea {
     padding: 20px 0px 20px 0px;
     font-size: 40px;
     font-family: 'Cinzel', serif;
-    color: #fff;
+    color: black;
     width: 600px;
 }
 
@@ -50,7 +50,7 @@ textarea {
     padding: 20px 0px 10px 0px;
     font-size: 27px;
     font-family: 'Cinzel', serif;
-    color: #fff;
+    color: black;
     width: 600px;
 }
 
