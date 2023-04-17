@@ -13,10 +13,6 @@ function Navbar() {
 
   return (
     <nav className='NavbarItems'>
-        <h1 className='navbar-logo'>Dan Ben Natan<i className='fab fa-react'></i></h1>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={clicked ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
         <ul
           className={clicked ? 'nav-menu active' : 'nav-menu'}
         >

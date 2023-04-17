@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import './About.css';
 import ComputerSeatImage from '../../images/about-me-reg-far.jpeg';
 import { aboutSectionString } from './AboutSectionStrings';
-import FormDialog from '../../components/modals/FormModal';
 import AboutSectionItem from './AboutSectionItem';
 
 function About() {

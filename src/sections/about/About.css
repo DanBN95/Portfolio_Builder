@@ -1,3 +1,7 @@
+* {
+    font-family: 'Aileron';
+}
+
 .body-container {
     display: flex;
     width: 100vw;
@@ -40,17 +44,17 @@ textarea {
 
 .about-title {
     padding: 20px 0px 20px 0px;
-    font-size: 40px;
-    font-family: 'Cinzel', serif;
-    color: black;
+    font-size: 50px;
+    color: #4a58f3;
+    font-weight: bold;
     width: 600px;
 }
 
 .sub-title {
     padding: 20px 0px 10px 0px;
-    font-size: 27px;
-    font-family: 'Cinzel', serif;
-    color: black;
+    font-size: 40px;
+    color: #4a58f3;
+    font-weight: bold;
     width: 600px;
 }
 
@@ -59,7 +63,6 @@ textarea {
     overflow-wrap: break-word;
     font-size: 18px;
     line-height: 1.5em;
-    font-family: 'Avenir-light', sans-serif;
     width: 600px;
 }
 
