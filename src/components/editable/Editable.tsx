@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import './Editable.css';
 import Button from "../button/Button";
 import FormModal from '../modals/FormModal';
+import FormDialog from "../modals/FormModal";
 
 // Component accept text, placeholder values and also pass what type of Input - input, textarea so that we can use it for styling accordingly
 type EditableProps = {
@@ -19,14 +20,18 @@ const Editable = ({
   type,
   placeholder,
   children,
-  setAiFormModalOpen,
+  // setAiFormModalOpen,
   index,
   deleteSectionItem,
   ...props
 }: EditableProps) => {
   const [isEditing, setEditing] = useState<boolean>(false);
+  const [inputText, setInputText] = useState<string>('');
   const [showEditTextOptions, setShowEditTextOptions] = useState(false);
   const sectionRef = useRef<any>(null);
+
+  const [isAiFormModalOpen, setAiFormModalOpen] = useState(false);
+
 
   const buttonCustomStyle = {
     borderRadius: '50%',
@@ -45,6 +50,16 @@ const Editable = ({
     setAiFormModalOpen(true)
     setShowEditTextOptions(false);
   };
+
+  const setGeneratedAiText = useCallback(
+    (text: string, sectionName: string) => {
+        setInputText(text);
+        // setAboutSectionState({
+        //     ...aboutSectionStates,
+        //     [key]: text
+        // })
+    },[],
+);
 
   useEffect(() => {
     let handler = (e: any) => {
@@ -98,6 +113,12 @@ const Editable = ({
         </>
       )}
     </section>
+    <FormDialog 
+        isModalOpen={isAiFormModalOpen}
+        setModalOpen={setAiFormModalOpen}
+        setGeneratedAiText={setGeneratedAiText}
+        sectionName={"about"}
+    />
     </>
   );
 };

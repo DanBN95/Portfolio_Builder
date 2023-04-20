@@ -30,6 +30,10 @@
     flex-wrap: nowrap;
 }
 
+.general-text {
+    border: 1 solid yellow;
+}
+
 .general-text:hover {
     border: 2px solid green;   
 }
